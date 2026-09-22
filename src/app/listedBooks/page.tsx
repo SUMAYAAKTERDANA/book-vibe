@@ -1,6 +1,7 @@
 'use client';
 
 import BookCard from "@/src/components/shared/BookCard";
+import ListedBook from "@/src/components/shared/ListedBooksCard";
 import ListedBooksCard from "@/src/components/shared/ListedBooksCard";
 import { BooksContext } from "@/src/context/BooksContext";
 import { IBook } from "@/src/types/books.types";
@@ -37,9 +38,9 @@ const ListedBooks = () => {
 
         <div className="flex flex-col gap-6">
 
-            {readBooks.map((book: IBook) => {
-                return <ListedBooksCard key={book.bookId} book={book} />;
-            })}
+            {readBooks.map((book: IBook) => (
+                <ListedBook key={book.bookId} book={book} />
+            ))}
 
         </div>
 
@@ -69,7 +70,7 @@ const ListedBooks = () => {
                         <div className="flex flex-col gap-6">
 
                             {wishlist.map((book: IBook) => (
-                                <BookCard
+                                <ListedBook
                                     key={book.bookId}
                                     book={book}
                                 />
