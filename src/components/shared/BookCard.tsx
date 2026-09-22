@@ -20,8 +20,8 @@ const BookCard = ({book} :IBookCardProps) => {
                       <Image
                        src={book.image}
                         alt={book.bookName}
-                        width={800}
-                        height={600}
+                        width={200}
+                        height={400}
                         className="object-contain p-5"
                       />
                     </div>
