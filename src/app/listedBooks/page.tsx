@@ -1,12 +1,11 @@
 'use client';
 
-import BookCard from "@/src/components/shared/BookCard";
 import ListedBook from "@/src/components/shared/ListedBooksCard";
-import ListedBooksCard from "@/src/components/shared/ListedBooksCard";
+
 import { BooksContext } from "@/src/context/BooksContext";
 import { IBook } from "@/src/types/books.types";
 import { useContext } from "react";
-import { IoBook } from "react-icons/io5";
+
 
 const ListedBooks = () => {
     const { readBooks, wishlist } = useContext(BooksContext);

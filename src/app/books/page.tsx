@@ -15,14 +15,21 @@ import Image from 'next/image';
 import { IBook } from '@/src/types/books.types';
 import Link from 'next/link';
 
+
+
+
+
 const getBooks = async () => {
-  const response = await fetch('http://localhost:3000/booksData.json');
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
+    const data = await response.json();
 
-  const data = await response.json();
-
-  return data;
-};
-
+    return data;
+  } catch (error) {
+    console.error('Error fetching books data:', error);
+    return [];
+  }
+}
 const Books = async () => {
   const booksData = await getBooks();
 
@@ -114,10 +121,10 @@ const Books = async () => {
 
                 {/* Button */}
                 <Link href={`/books/${book.bookId}`}>
-                      <button className="btn btn-success mt-5 w-full rounded-xl">
-                        View Details
-                      </button>
-                      </Link>
+                  <button className="btn btn-success mt-5 w-full rounded-xl">
+                    View Details
+                  </button>
+                </Link>
 
               </div>
             </div>
